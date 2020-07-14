@@ -1,6 +1,5 @@
 const express = require('express');
 const models = require('./models');
-const { where } = require('sequelize');
 const app = express();
 
 app.use(express.json());
@@ -19,7 +18,7 @@ app.post('/users', async (req, res) => {
   const { firstName, lastName, email } = req.body;
   try {
     const resp = await models.User.create({ firstName, lastName, email });
-    console.log('resp >>>> ', resp);
+
     res.json({
       message: 'created!',
       data: resp
@@ -37,7 +36,7 @@ app.put('/users/:id', async (req, res) => {
     { firstName, lastName, email },
     { where: { id: req.params.id } }
   );
-  console.log('resp >>>> ', resp);
+
   res.json({
     message: 'updated!',
     data: resp
