@@ -17,7 +17,7 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.removeConstraint('Users', 'emailunique');
+    return queryInterface.removeConstraint('Users', 'email_unique');
     /*
       Add reverting commands here.
       Return a promise to correctly handle asynchronicity.
